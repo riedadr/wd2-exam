@@ -2,7 +2,7 @@
 
 - Refer to the Yii2 Request Lifecycle. Drag the right keywords onto the red-bordered boxes with the missing terms.
 
-![Request Handling Lifecycle aus den Docs](https://www.yiiframework.com/doc/guide/2.0/en/images/request-lifecycle.png)
+[![Request Handling Lifecycle aus den Docs](https://www.yiiframework.com/doc/guide/2.0/en/images/request-lifecycle.png)](https://www.yiiframework.com/doc/guide/2.0/en/runtime-overview)
 
 - The following PHP code shows the view of the Yii2 advanced template's contact form.
 Copy the code to a local file and create the Yii2 view for an Yii2 ActiveForm that shows the input fields:
