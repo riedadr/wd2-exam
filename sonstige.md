@@ -11,8 +11,8 @@ You are not allowed to add any additional lines!
 
 const fastify = require("fastify")
 
-fastify.register(require("routes/v1/country.js"))
-fastify.register(require("routes/v2/country.js"))
+fastify.register(require("routes/v1/country.js"), {prefix: "/v1"})
+fastify.register(require("routes/v2/country.js"), {prefix: "/v2"})
 
 fastify.listen(5500)
 ```
