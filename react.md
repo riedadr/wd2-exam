@@ -24,6 +24,8 @@ return(<h1>Hallo</h1>)
 
 - Which data structure should be used to access input data that is passed into a react component?
 
+Das Objekt `this.props`
+
 ```js
 // Class Component
 this.props
