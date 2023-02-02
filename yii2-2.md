@@ -1,4 +1,5 @@
 # Zusatzfragen zu Yii2
+Von den folgenden
 
 -   The following diagramm shows the static structure of a Yii2 application. Fill in the re-bordered boxes with the missing terms.
 
@@ -10,23 +11,52 @@
     - modules: they are self-contained packages that contain complete MVC by themselves. An application can be organized in terms of multiple modules.
     - filters: they represent code that need to be invoked before and after the actual handling of each request by controllers.
     - widgets: they are objects that can be embedded in views. They may contain controller logic and can be reused in different views.
----
+
+<br>
+
 - Based on the given code template complete the code to implement a Yii2 RESTful Web Services controller (RWSC) The RWSC should expose the country model class via RESTful actors. You are not allowed to add additional lines to the code.
 
+    *Angabe unvollständig; 
+    vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/rest-quick-start)*
     ```php
-    ???
+    // app\controllers\CountryController
+    namespace app\controllers;
+
+    use yii\rest\ActiveController;
+
+    class CountryController extends ActiveController
+    {
+        public $modelClass = 'app\models\Country';
+    }
     ```
 
-- Based on the given Yii2 configuration template snippet, replace the three placeholder in the configuration to add  module country to your Yi2 application. You are not allowed to add additional lines to the code.
+    ```php
+    // app\config\web.php
+    'urlManager' => [
+        'enablePrettyUrl' => true,
+        'enableStrictParsing' => true,
+        'showScriptName' => false,
+        'rules' => [
+            ['class' => 'yii\rest\UrlRule',     'controller' => 'country'],
+        ],
+    ]
+    ```
 
+- Based on the given Yii2 configuration template snippet, replace the three placeholder in the configuration to add  module country to your Yii2 application. You are not allowed to add additional lines to the code.
+
+    *Angabe unvollständig*
     ```php
     ???
     ```
 
 - The following source code shows  the declaration of actionAbout that should display the about page. What must be the return value?
 
+    *Angabe unvollständig; vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/start-hello)*
     ```php
-    ???
+    public function actionAbout()
+    {
+        return $this->render('about');
+    }
     ```
 
 - A Yii2 Controller CID belongs to module MID. What is the route format for action AID?
@@ -41,10 +71,10 @@
     HelpController
     ```
 
-- Which Yi2 component is used to collect information about a user request and resolve it into a route?
+- Which Yii2 component is used to collect information about a user request and resolve it into a route?
 
     ```php
-    UrlManager
+    the request component
     ```
 
 - You are about to create a new Yi2 module. Which public method of the module class contains the code initializing the modules properties?
