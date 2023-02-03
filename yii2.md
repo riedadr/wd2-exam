@@ -59,7 +59,7 @@ You are not allowed to add additional lines to the code.
         'rules' => [
             ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
         ],
-]
+    ]
     ```
 
 12. Your site controller needs a new action for rendering page "FollowMe". What is the correct action name following the Yii2 naming conventions?
