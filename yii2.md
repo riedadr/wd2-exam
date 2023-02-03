@@ -1,4 +1,4 @@
-# Fragen zu Yii2
+# Yii2
 
 9. Refer to the Yii2 Request Lifecycle. Drag the right keywords onto the red-bordered boxes with the missing terms.
 
@@ -13,7 +13,6 @@
     in this order and a submit button with label "send". Autofocus should be on field "firstname".
 
     ```php
-    
     <?php
     
     /* @var $this yii\web\View */
@@ -32,13 +31,13 @@
         <p>Please give us your data</p>
         <div class="row">
             <div class="col-lg-5">
-                <?php $form = ActiveForm::begin(['id' =>    'contact-form']); ?>
-                    <?= $form->field($model, 'firstname')->textInput   (['autofocus' => true]) ?>
+                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+                    <?= $form->field($model, 'firstname')->textInput(['autofocus' => true]) ?>
                     <?= $form->field($model, 'lastname') ?>
                     <?= $form->field($model, 'age') ?>
                     <?= $form->field($model, 'birthdate') ?>
                     <div class="form-group">
-                        <?= Html::submitButton('Submit', ['class' =>    'btn btn-primary', 'label' => 'send']) ?>
+                        <?= Html::submitButton('send', ['class' => 'btn btn-primary']) ?>
                     </div>
                 <?php ActiveForm::end(); ?>
             </div>
@@ -49,13 +48,16 @@
 11. Based on the given Yii2 code template snippet, replace the two placeholders in the configuration to add a URL rule for the country controller so that the country data can be accessed and manipulated with pretty URLs and meaningful HTTP verbs.
 You are not allowed to add additional lines to the code.
 
+    *vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing#using-pretty-urls)*
+
     ```php
     'urlManager' => [
         'enablePrettyUrl' => true
         'enableStrictParsing' => true,
         'showScriptName' => false,
         'rules' => [
-            ['class' => 'Country', 'defaults' => 'model', 'route' => 'site/CountryController',?],
+            "country" => "country/index"
+            // localhost/country statt localhost/index.php?r=country%2Findex
         ],
     ]
     ```
@@ -120,3 +122,107 @@ You are not allowed to add additional lines to the code.
     - [x] a view
     - [ ] a controller
     - [ ] a model
+
+
+## Zusatzfragen
+
+-   The following diagramm shows the static structure of a Yii2 application. Fill in the re-bordered boxes with the missing terms.
+
+    [![](https://www.yiiframework.com/doc/guide/2.0/en/images/application-structure.png)](https://www.yiiframework.com/doc/guide/2.0/en/structure-overview)
+
+    - entry scripts: they are PHP scripts that are directly accessible by end users. They are responsible for starting a request handling cycle.
+    - applications: they are globally accessible objects that manage application components and coordinate them to fulfill requests.
+    - application components: they are objects registered with applications and provide various services for fulfilling requests.
+    - modules: they are self-contained packages that contain complete MVC by themselves. An application can be organized in terms of multiple modules.
+    - filters: they represent code that need to be invoked before and after the actual handling of each request by controllers.
+    - widgets: they are objects that can be embedded in views. They may contain controller logic and can be reused in different views.
+
+<br>
+
+- Based on the given code template complete the code to implement a Yii2 RESTful Web Services controller (RWSC) The RWSC should expose the country model class via RESTful actors. You are not allowed to add additional lines to the code.
+
+    *Angabe unvollständig; 
+    vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/rest-quick-start)*
+    ```php
+    // app\controllers\CountryController
+
+    namespace app\controllers;
+
+    use yii\rest\ActiveController;
+
+    class CountryController extends ActiveController
+    {
+        public $modelClass = 'app\models\Country';
+    }
+    ```
+
+    ```php
+    // app\config\web.php
+
+    'urlManager' => [
+        'enablePrettyUrl' => true,
+        'enableStrictParsing' => true,
+        'showScriptName' => false,
+        'rules' => [
+            ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
+        ],
+    ]
+    ```
+
+- Based on the given Yii2 configuration template snippet, replace the three placeholder in the configuration to add  module country to your Yii2 application. You are not allowed to add additional lines to the code.
+
+    *Angabe unvollständig*
+    ```php
+    ???
+    ```
+
+- The following source code shows  the declaration of actionAbout that should display the about page. What must be the return value?
+
+    *Angabe unvollständig; vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/start-hello)*
+    ```php
+    // app\controllers\SiteController.php
+
+    /**
+     * Displays about page.
+     *
+     * @return string
+     */
+    public function actionAbout()
+    {
+        return $this->render('about');
+    }
+    ```
+
+- A Yii2 Controller CID belongs to module MID. What is the route format for action AID?
+
+    *vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/structure-controllers#:~:text=ModuleID/ControllerID/ActionID)*
+    ```txt
+    MID/CID/AID
+    ```
+
+- What is the name of the default controller of the Yii2 console application?
+
+    *vgl [Docs](https://www.yiiframework.com/doc/guide/2.0/en/structure-controllers#:~:text=while%20for%20console%20applications,%20it%20is%20help.)*
+    ```php
+    HelpController
+    ```
+
+- Which Yii2 component is used to collect information about a user request and resolve it into a route?
+
+    *vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/structure-application-components#:~:text=For%20example%2C%20the%20request%20component,you%20can%20perform%20database%20queries.)*
+
+    ```txt
+    the request component
+    ```
+    
+
+- You are about to create a new Yii2 module. Which public method of the module class contains the code initializing the modules properties?
+
+    ```php
+    init()
+    ```
+
+- Cross-site request forgery is also known as?
+    ```txt
+    Session Riding || One-Click-Attack
+    ```
