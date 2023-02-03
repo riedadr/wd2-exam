@@ -1,5 +1,6 @@
 # Klausur in WD2
 
+**OBACHT:** Repository auch auf GitLab ([gitlab.hof-university.de/riedadr/wd2-exam](https://gitlab.hof-university.de/riedadr/wd2-exam)) verfügbar!
 ## Probeklausur
 
 -   [Fastify](https://github.com/riedadr/wd2-exam/blob/main/fastify.md)
