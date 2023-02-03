@@ -48,18 +48,18 @@
 11. Based on the given Yii2 code template snippet, replace the two placeholders in the configuration to add a URL rule for the country controller so that the country data can be accessed and manipulated with pretty URLs and meaningful HTTP verbs.
 You are not allowed to add additional lines to the code.
 
-    *vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing#using-pretty-urls)*
+    *vgl. [Docs](https://www.yiiframework.com/doc/guide/2.0/en/rest-quick-start#:~:text=can%20be%20accessed%20and%20manipulated%20with%20pretty%20URLs%20and%20meaningful%20HTTP%20verbs.)* 
+    (alternativ: [PrettyUrl-Docs](https://www.yiiframework.com/doc/guide/2.0/en/runtime-routing#using-pretty-urls))
 
     ```php
     'urlManager' => [
-        'enablePrettyUrl' => true
+        'enablePrettyUrl' => true,
         'enableStrictParsing' => true,
         'showScriptName' => false,
         'rules' => [
-            "country" => "country/index"
-            // localhost/country statt localhost/index.php?r=country%2Findex
+            ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
         ],
-    ]
+]
     ```
 
 12. Your site controller needs a new action for rendering page "FollowMe". What is the correct action name following the Yii2 naming conventions?
